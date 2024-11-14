@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Cargar imagen
-img = cv2.imread('Lineas_Circulos.jpg')
+img = cv2.imread('Imagen_a_identificar.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Aplicar detección de bordes
