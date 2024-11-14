@@ -3,15 +3,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Cargar imagen
-img = cv2.imread('Lineas_Circulos.jpg')
+img = cv2.imread('Imagen_a_identificar.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Aplicar desenfoque para reducir el ruido
 gray = cv2.medianBlur(gray, 5)
 
 # Detectar circunferencias con la transformada de Hough
-circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 1, 20,
-                        param1=50, param2=50, minRadius=0, maxRadius=0)
+circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 
+                           dp=1, 
+                           minDist=50, 
+                           param1=100, 
+                           param2=30, 
+                           minRadius=8, 
+                           maxRadius=100)
 
 # Dibujar las circunferencias detectadas
 if circles is not None:
